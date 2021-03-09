@@ -1,19 +1,20 @@
 {
   "name": "@sanemat/faas-penguin",
-  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.1.0",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/sanemat/faas-penguin/issues"
   },
+  "homepage": "https://github.com/sanemat/faas-penguin#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/sanemat/faas-penguin.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sanemat/faas-penguin/issues"
-  },
-  "homepage": "https://github.com/sanemat/faas-penguin#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
