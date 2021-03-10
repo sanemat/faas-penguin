@@ -7,7 +7,7 @@
     "url": "https://github.com/sanemat/faas-penguin/issues"
   },
   "homepage": "https://github.com/sanemat/faas-penguin#readme",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "main": "index.js",
   "private": true,
   "repository": {
