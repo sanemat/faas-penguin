@@ -1,7 +1,6 @@
 'use strict';
 
+const assert = require('assert').strict;
 const faasPenguinLocal = require('..');
 
-describe('@sanemat/faas-penguin-local', () => {
-    it('needs tests');
-});
+assert.ok(true);

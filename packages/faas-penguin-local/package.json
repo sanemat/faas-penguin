@@ -21,7 +21,7 @@
     "url": "git+ssh://git@github.com/sanemat/faas-penguin.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "node __tests__/faas-penguin-local.test.js"
   },
   "bugs": {
     "url": "https://github.com/sanemat/faas-penguin/issues"
