@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/sanemat/faas-penguin/issues"
   },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "prettier": "^2.2.1"
+  },
   "homepage": "https://github.com/sanemat/faas-penguin#readme",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -15,9 +19,8 @@
     "url": "git+ssh://git@github.com/sanemat/faas-penguin.git"
   },
   "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "test": "lerna run test --stream"
-  },
-  "devDependencies": {
-    "lerna": "^4.0.0"
   }
 }
