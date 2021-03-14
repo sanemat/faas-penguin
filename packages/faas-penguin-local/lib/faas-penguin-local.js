@@ -1,7 +1,8 @@
-"use strict";
+import * as http from "http";
 
-module.exports = faasPenguinLocal;
-
-function faasPenguinLocal() {
-  // TODO
+export function faasPenguinLocal() {
+  return http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end("Hello World\n");
+  });
 }
