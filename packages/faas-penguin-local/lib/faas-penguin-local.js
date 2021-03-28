@@ -2,6 +2,7 @@ import * as http from "http";
 
 export function faasPenguinLocal() {
   return http.createServer((req, res) => {
+    // hexdump -C packages/faas-penguin-local/__tests__/png-transparent.png
     let buf = Buffer.from([
       0x89,
       0x50,
