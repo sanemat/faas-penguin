@@ -1,6 +1,10 @@
 import { strict as assert } from "assert";
 import * as http from "http";
 import { faasPenguinLocal } from "../lib/faas-penguin-local.js";
+import fs from "fs";
+const expected = fs.readFileSync(
+  new URL("./png-transparent.png", import.meta.url)
+);
 
 const server = faasPenguinLocal();
 server.listen(4000, "localhost", (err) => {
@@ -9,12 +13,12 @@ server.listen(4000, "localhost", (err) => {
     throw err;
   }
   http.get("http://localhost:4000", (res) => {
-    let body = "";
-    res.on("data", (data) => {
-      body += data;
+    let data = [];
+    res.on("data", (chunk) => {
+      data.push(chunk);
     });
     res.on("end", () => {
-      assert.equal(body, "Hello World\n");
+      assert.ok(expected.equals(Buffer.concat(data)));
       server.close();
     });
     res.on("error", () => {

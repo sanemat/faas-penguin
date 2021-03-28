@@ -2,7 +2,85 @@ import * as http from "http";
 
 export function faasPenguinLocal() {
   return http.createServer((req, res) => {
-    res.writeHead(200);
-    res.end("Hello World\n");
+    // hexdump -C packages/faas-penguin-local/__tests__/png-transparent.png
+    let buf = Buffer.from([
+      0x89,
+      0x50,
+      0x4e,
+      0x47,
+      0x0d,
+      0x0a,
+      0x1a,
+      0x0a,
+      0x00,
+      0x00,
+      0x00,
+      0x0d,
+      0x49,
+      0x48,
+      0x44,
+      0x52,
+      0x00,
+      0x00,
+      0x00,
+      0x01,
+      0x00,
+      0x00,
+      0x00,
+      0x01,
+      0x08,
+      0x06,
+      0x00,
+      0x00,
+      0x00,
+      0x1f,
+      0x15,
+      0xc4,
+      0x89,
+      0x00,
+      0x00,
+      0x00,
+      0x0a,
+      0x49,
+      0x44,
+      0x41,
+      0x54,
+      0x78,
+      0x9c,
+      0x63,
+      0x00,
+      0x01,
+      0x00,
+      0x00,
+      0x05,
+      0x00,
+      0x01,
+      0x0d,
+      0x0a,
+      0x2d,
+      0xb4,
+      0x00,
+      0x00,
+      0x00,
+      0x00,
+      0x49,
+      0x45,
+      0x4e,
+      0x44,
+      0xae,
+      0x42,
+      0x60,
+      0x82,
+    ]);
+
+    // Instruct the client on what it's going to receive.
+    res.setHeader("Content-Type", "image/png");
+    res.write(buf, "binary");
+    res.end();
+
+    // Handle closing connection by the client.
+    res.on("close", () => {
+      buf = null;
+    });
   });
 }
