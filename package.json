@@ -21,6 +21,7 @@
   "scripts": {
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "regeneratedeps": "lerna clean && lerna bootstrap",
     "test": "lerna run test --stream"
   }
 }
