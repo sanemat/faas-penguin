@@ -1,3 +1,12 @@
+k6_performance_tests: &k6_performance_tests
+  run:
+    name: Running k6 tests
+    # Download the k6 docker image. Alternatively, download the k6 release binary
+    # Mount a volume to access the folder and run the test
+    command: |
+      docker pull loadimpact/k6:latest
+      docker run -i -v $(pwd):/ci/ loadimpact/k6:latest run /ci/packages/faas-penguin-local/performance-test.js
+
 jobs:
   test:
     executor:
@@ -8,6 +17,23 @@ jobs:
       - node/install-packages
       - run:
           command: npm run format:check && npm test
+  run_performance_tests:
+    # Use `machine` executor because the Docker executor cannot mount volumes
+    machine: true
+    steps:
+      - checkout
+      - run: |
+          echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
+          echo ' [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+      - run: |
+          nvm install v14
+          node -v
+          nvm alias default v14
+      - node/install-packages
+      - *k6_performance_tests
+      - store_artifacts:
+          path: performance/
+
 orbs:
   node: circleci/node@4.1.0
 version: 2.1
@@ -15,3 +41,14 @@ workflows:
   test_my_app:
     jobs:
       - test
+      #- run_performance_tests
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 1 * * *" # use cron syntax to set the schedule
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - run_performance_tests
