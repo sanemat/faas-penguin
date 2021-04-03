@@ -22,6 +22,7 @@
     "url": "git+ssh://git@github.com/sanemat/faas-penguin.git"
   },
   "scripts": {
+    "performance": "k6 run performance-test.js",
     "test": "node __tests__/faas-penguin-local.test.js"
   },
   "bugs": {
