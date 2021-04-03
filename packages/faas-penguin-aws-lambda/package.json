@@ -1,0 +1,30 @@
+{
+  "name": "@sanemat/faas-penguin-aws-lambda",
+  "description": "> TODO: description",
+  "version": "0.1.0",
+  "author": "Matt <o.gata.ken@gmail.com> (Sanemat)",
+  "bugs": {
+    "url": "https://github.com/sanemat/faas-penguin/issues"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/sanemat/faas-penguin/tree/main/packages/faas-penguin-aws-lambda#readme",
+  "license": "Apache-2.0",
+  "main": "lib/faas-penguin-aws-lambda.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sanemat/faas-penguin.git"
+  },
+  "scripts": {
+    "test": "node __tests__/faas-penguin-aws-lambda.test.js"
+  },
+  "type": "module"
+}
