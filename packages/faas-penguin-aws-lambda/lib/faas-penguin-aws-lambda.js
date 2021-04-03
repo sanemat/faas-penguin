@@ -1,7 +1,1 @@
-"use strict";
-
-module.exports = faasPenguinAwsLambda;
-
-function faasPenguinAwsLambda() {
-  // TODO
-}
+export function faasPenguinAwsLambda() {}
