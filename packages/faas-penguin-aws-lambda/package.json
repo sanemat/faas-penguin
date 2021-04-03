@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Matt <o.gata.ken@gmail.com> (Sanemat)",
+  "type": "module",
   "homepage": "https://github.com/sanemat/faas-penguin/tree/main/packages/faas-penguin-aws-lambda#readme",
   "license": "Apache-2.0",
   "main": "lib/faas-penguin-aws-lambda.js",
