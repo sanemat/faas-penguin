@@ -1,7 +1,3 @@
-'use strict';
+import { strict as assert } from "assert";
 
-const faasPenguinAwsLambda = require('..');
-
-describe('@sanemat/faas-penguin-aws-lambda', () => {
-    it('needs tests');
-});
+assert.ok(true);
