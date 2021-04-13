@@ -4,8 +4,15 @@ k6_performance_tests: &k6_performance_tests
     # Download the k6 docker image. Alternatively, download the k6 release binary
     # Mount a volume to access the folder and run the test
     command: |
-      docker pull loadimpact/k6:latest
-      docker run -i -v $(pwd):/ci/ loadimpact/k6:latest run /ci/packages/faas-penguin-local/performance-test.js
+      docker run \
+        -i \
+        -v $(pwd):/ci/ \
+        --user $UID \
+        loadimpact/k6:latest \
+        run \
+        --out json=/ci/performance/full.json \
+        --summary-export=/ci/performance/summary.json \
+        /ci/packages/faas-penguin-local/performance-test.js
 
 jobs:
   test:
@@ -41,7 +48,7 @@ workflows:
   test_my_app:
     jobs:
       - test
-      #- run_performance_tests
+      - run_performance_tests
   nightly:
     triggers:
       - schedule:
