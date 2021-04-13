@@ -48,7 +48,7 @@ workflows:
   test_my_app:
     jobs:
       - test
-      - run_performance_tests
+      #- run_performance_tests
   nightly:
     triggers:
       - schedule:
