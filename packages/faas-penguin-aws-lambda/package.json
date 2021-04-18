@@ -15,7 +15,7 @@
   ],
   "homepage": "https://github.com/sanemat/faas-penguin/tree/main/packages/faas-penguin-aws-lambda#readme",
   "license": "Apache-2.0",
-  "main": "lib/faas-penguin-aws-lambda.js",
+  "main": "app.js",
   "publishConfig": {
     "access": "public"
   },
@@ -25,6 +25,5 @@
   },
   "scripts": {
     "test": "node __tests__/faas-penguin-aws-lambda.test.js"
-  },
-  "type": "module"
+  }
 }
